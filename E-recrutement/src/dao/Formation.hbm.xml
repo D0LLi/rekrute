@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="dao.Formation" table="FORMATIONS">
+		<id name="idFormation" column="ID_FORMATION">
+			<generator class="native"></generator>
+		</id>
+		<property name="date_debut" column="DATE_DEBUT"></property>
+		<property name="date_fin" column="DATE_FIN"></property>
+		<property name="lieu" column="LIEU"></property>
+		<property name="titre" column="TITRE"></property>
+		<property name="description" column="DESCRIPTION"></property>
+
+		<many-to-one name="monCV" class="dao.CV" cascade="save-update">
+			<column name="idCV" />
+		</many-to-one>
+
+
+	</class>
+
+</hibernate-mapping>

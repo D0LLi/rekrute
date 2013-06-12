@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="dao.Recruteur" table="RECRUTEUR">
+		<id name="idRecruteur" column="ID_RECRUTEUR">
+			<generator class="native"></generator>
+		</id>
+		<property name="nom" column="NOM"></property>
+		<property name="prenom" column="PRENOM"></property>
+		<property name="entreprise" column="ENTREPRISE"></property>
+		<property name="address" column="ADDRESS"></property>
+		<property name="telephone" column="TELEPHONE"></property>
+		<property name="email" column="EMAIL"></property>
+		<property name="pays" column="PAYS"></property>
+		<property name="ville" column="VILLE"></property>
+		<property name="password" column="PASSWORD"></property>
+		<property name="secteur" column="SECTEUR"></property>
+		<property name="siteweb" column="SITEWEB"></property>
+		<property name="description" column="DESCRIPTION"></property>
+
+
+		<set name="candidatures" inverse="true" lazy="true" fetch="select">
+			<key>
+				<column name="idRecruteur" />
+			</key>
+			<one-to-many class="dao.Candidature" />
+		</set>
+
+		<set name="mes_Offres" inverse="true" lazy="true" fetch="select" >
+			<key>
+				<column name="idRecruteur" not-null="true"/>
+			</key>
+			<one-to-many class="dao.Offre" />
+		</set>
+
+
+
+
+
+	</class>
+
+</hibernate-mapping>

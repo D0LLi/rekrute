@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="dao.Candidat" table="CANDIDATS">
+		<id name="idCandidat" column="ID_CANDIDAT">
+			<generator class="native"></generator>
+		</id>
+		<property name="civilite" column="CIVILITE"></property>
+		<property name="nom" column="NOM"></property>
+		<property name="prenom" column="PRENOM"></property>
+		<property name="email" column="EMAIL"></property>
+		<property name="address" column="ADDRESS"></property>
+		<property name="pays" column="PAYS"></property>
+		<property name="ville" column="VILLE"></property>
+		<property name="telephone" column="TELEPHONE"></property>
+		<property name="date_de_naissance" column="BIRTHDAY"></property>
+		<property name="password" column="PASSWORD"></property>
+		<property name="fonction_actuelle" column="FONCTION_ACTUELLE"></property>
+		<property name="disponibilite" column="DISPONIBILITE"></property>
+		<property name="pretention_salariale" column="PRETENTION_SALARIALE"></property>
+
+		<one-to-one name="monCV" class="dao.CV" cascade="save-update,delete"></one-to-one>
+
+		<set name="candidatures" cascade="save-update,delete">
+			<key>
+				<column name="ID_CANDIDAT" />
+			</key>
+			<one-to-many class="dao.Candidature" />
+		</set>
+
+		<set name="alerte_Recherche" cascade="save-update,delete">
+			<key>
+				<column name="ID_CANDIDAT" />
+			</key>
+			<one-to-many class="dao.Alerte_Recherche" />
+		</set>
+
+		<set name="lettres_motivation" cascade="save-update,delete">
+			<key>
+				<column name="ID_CANDIDAT" />
+			</key>
+			<one-to-many class="dao.Lettre_motivation" />
+		</set>
+
+
+	</class>
+
+</hibernate-mapping>

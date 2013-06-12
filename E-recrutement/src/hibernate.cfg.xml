@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/recruteDB</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password"></property>
+
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">1</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- Enable Hibernate's Automatic session context -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hbm2ddl.auto">update</property>
+
+        <mapping resource="dao/Candidat.hbm.xml"/>
+        <mapping resource="dao/Candidature.hbm.xml"/>
+        <mapping resource="dao/Competence.hbm.xml"/>
+        <mapping resource="dao/CV.hbm.xml"/>
+        <mapping resource="dao/Experience.hbm.xml"/>
+        <mapping resource="dao/Formation.hbm.xml"/>
+        <mapping resource="dao/Lettre_motivation.hbm.xml"/>
+        <mapping resource="dao/Offre.hbm.xml"/>
+        <mapping resource="dao/Recruteur.hbm.xml"/>
+         <mapping resource="dao/Alerte_Recherche.hbm.xml"/>
+
+    </session-factory>
+
+</hibernate-configuration>
+

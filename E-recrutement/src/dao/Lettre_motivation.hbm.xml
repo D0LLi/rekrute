@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="dao.Lettre_motivation" table="LETTRES_MOTIVATION">
+		<id name="idLettre" column="ID_LETTRE">
+			<generator class="native"></generator>
+		</id>
+		<property name="titre" column="TITRE"></property>
+		<property name="contenu" column="CONTENU"></property>
+		<many-to-one name="candidat" class="dao.Candidat">
+			<column name="idCandidat" />
+		</many-to-one>
+
+
+	</class>
+
+</hibernate-mapping>

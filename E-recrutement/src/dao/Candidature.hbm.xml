@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="dao.Candidature" table="CANDIDATURES">
+		<id name="idCandidature" column="ID_CANDIDATURE">
+			<generator class="native"></generator>
+		</id>
+
+		<property name="date" column="DATE"></property>
+
+		<many-to-one name="candidat" class="dao.Candidat">
+			<column name="idCandidat" />
+		</many-to-one>
+
+		<many-to-one name="offre" class="dao.Offre">
+			<column name="idOffre" />
+		</many-to-one>
+		<many-to-one name="recruteur" class="dao.Recruteur">
+			<column name="idRecruteur" />
+		</many-to-one>
+
+
+
+
+	</class>
+
+</hibernate-mapping>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+			
+			<bean class="dao.Alerte_RechercheImpl" id="beanAlerte" ></bean>
+			<bean class="metier.Alerte_RechercheImplMetier" id="beanAlerteImplMetier" >
+			<property name="alerte_RechercheDAO" ref="beanAlerte"></property>
+			</bean>
+            
+            <bean class="dao.CandidatImpl" id="beanCandidat" init-method="init"></bean>
+     		<bean class="metier.CandidatImplMetier" id="beanCandidatImplMetier" >
+			<property name="candidatDAO" ref="beanCandidat"></property>
+			</bean>
+			
+			 <bean class="dao.CandidatureImpl" id="beanCandidature" ></bean>
+     		<bean class="metier.CandidatureImplMetier" id="beanCandidatureImplMetier" >
+			<property name="candidatureDAO" ref="beanCandidature"></property>
+			</bean>
+			
+			<bean class="dao.CompetenceImpl" id="beanCompetence" ></bean>
+     		<bean class="metier.CompetenceImplMetier" id="beanCompetenceImplMetier" >
+			<property name="competenceDAO" ref="beanCompetence"></property>
+			</bean>
+			
+			<bean class="dao.CVImpl" id="beanCV" ></bean>
+     		<bean class="metier.CVImplMetier" id="beanCVImplMetier" >
+			<property name="cvdao" ref="beanCV"></property>
+			</bean>
+			
+			<bean class="dao.ExperienceImpl" id="beanExperience" ></bean>
+     		<bean class="metier.ExperienceImplMetier" id="beanExperienceImplMetier" >
+			<property name="ExperienceDAO" ref="beanExperience"></property>
+			</bean>
+			
+			<bean class="dao.FormationImpl" id="beanFormation" ></bean>
+     		<bean class="metier.FormationImplMetier" id="beanFormationImplMetier" >
+			<property name="formationDAO" ref="beanFormation"></property>
+			</bean>
+			
+			<bean class="dao.Lettre_motivationImpl" id="beanLettre_motivation" ></bean>
+     		<bean class="metier.Lettre_motivationImplMetier" id="beanLettre_motivationImplMetier" >
+			<property name="lettre_motivationDAO" ref="beanLettre_motivation"></property>
+			</bean>
+			
+			<bean class="dao.OffreImpl" id="beanOffre" ></bean>
+     		<bean class="metier.OffreImplMetier" id="beanOffreImplMetier" >
+			<property name="offreDAO" ref="beanOffre"></property>
+			</bean>
+			
+			<bean class="dao.RecruteurImpl" id="beanRecruteur" ></bean>
+     		<bean class="metier.RecruteurImplMetier" id="beanRecruteurImplMetier" >
+			<property name="recruteurDAO" ref="beanRecruteur"></property>
+			</bean>
+			
+			
+
+</beans>
+

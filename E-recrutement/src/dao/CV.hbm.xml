@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="dao.CV" table="CVS">
+		<id name="idCV" column="ID_CV">
+			<generator class="native"></generator>
+		</id>
+		<property name="divers" column="DIVERS"></property>
+
+		<one-to-one name="candidat" class="dao.Candidat" cascade="save-update"></one-to-one>
+
+
+		<set name="experiences" cascade="save-update,delete">
+			<key>
+				<column name="ID_CV" />
+			</key>
+			<one-to-many class="dao.Experience" />
+		</set>
+		<set name="formations"  cascade="save-update,delete">
+			<key>
+				<column name="ID_CV" />
+			</key>
+			<one-to-many class="dao.Formation" />
+		</set>
+		<set name="competences"  cascade="save-update,delete">
+			<key>
+				<column name="ID_CV" />
+			</key>
+			<one-to-many class="dao.Competence" />
+		</set>
+
+
+	</class>
+
+</hibernate-mapping>
